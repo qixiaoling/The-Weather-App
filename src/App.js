@@ -13,7 +13,7 @@ import ForecastTab from "./pages/forecastTab/ForecastTab";
 import TodayTab from "./pages/todayTab/TodayTab";
 import kelvinToCelcius from "./helpers/kelvinToCelcius";
 
-const apiKey = 'b7ae113310db05940950e41fd1692a30';
+
 
 function App() {
     const [weatherData, setWeatherData] = useState(null);
@@ -28,7 +28,7 @@ function App() {
             toggleLoading(true);
 
             try {
-                const result = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location},nl&appid=${apiKey}&lang=nl`);
+                const result = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location},nl&appid=${process.env.REACT_APP_API_KEY}&lang=nl`);
                 setWeatherData(result.data);
                 toggleLoading(false)
             } catch (e) {
@@ -80,7 +80,7 @@ function App() {
                         <div className='tab-wrapper'>
                             <Switch>
                                 <Route exact path='/'>
-                                    <TodayTab/>
+                                    <TodayTab coordinates={weatherData && weatherData.coord}/>
                                 </Route>
                                 <Route exact path='/komende-week'>
                                     <ForecastTab coordinates={weatherData && weatherData.coord}/>
