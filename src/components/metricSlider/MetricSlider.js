@@ -1,11 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react';
 import './MetricSlider.css';
-import tempContext from '../../context/TempProvider'
+import {TempContextProvider} from "../../context/TempProvider"
 
 
 const MetricSlider = () => {
     const [checked, toggleChecked] = useState(true);
-    const {toggleTemp} = useContext(tempContext);
+    const {toggleTemp} = useContext(TempContextProvider);
 
 
     useEffect(()=>{

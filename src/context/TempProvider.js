@@ -1,7 +1,8 @@
 import React, {createContext, useState} from 'react';
 import kelvinToCelcius from "../helpers/kelvinToCelcius";
 import kelvinToFahrenheit from "../helpers/kelvinToFahrenheit";
-export const TempContext = createContext(null);
+
+export const tempContext = createContext(null);
 
 function TempContextProvider({children}){
     const[selectedMetric, toggleSelectedMetric] = useState('celcius');

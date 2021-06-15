@@ -11,8 +11,7 @@ import './App.css';
 import axios from 'axios';
 import ForecastTab from "./pages/forecastTab/ForecastTab";
 import TodayTab from "./pages/todayTab/TodayTab";
-import kelvinToCelcius from "./helpers/kelvinToCelcius";
-import { TempContext } from './context/TempContext';
+
 
 
 

@@ -3,7 +3,8 @@ import './ForecastTab.css';
 import axios from "axios";
 import kelvinToCelcius from "../../helpers/kelvinToCelcius";
 import createDateString from "../../helpers/createDateString";
-import tempContext from "../../context/TempProvider"
+import{TempContextProvider} from "../../context/TempProvider";
+
 const apiKey = 'b7ae113310db05940950e41fd1692a30';
 
 
@@ -12,7 +13,7 @@ function ForecastTab({ coordinates }) {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const {kelvinToMetric} = useContext(tempContext);
+    const {kelvinToMetric} = useContext(TempContextProvider);
 
 
 
