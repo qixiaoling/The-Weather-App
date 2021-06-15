@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -12,6 +12,8 @@ import axios from 'axios';
 import ForecastTab from "./pages/forecastTab/ForecastTab";
 import TodayTab from "./pages/todayTab/TodayTab";
 import kelvinToCelcius from "./helpers/kelvinToCelcius";
+import tempContext from './context/TempProvider'
+
 
 
 
@@ -20,6 +22,8 @@ function App() {
     const [location, setLocation] = useState('');
     const [error, setError] = useState(false)
     const [loading, toggleLoading] = useState(false);
+
+    const {kelinToMetric} = useContext(tempContext);
 
     useEffect(() => {
 
@@ -67,7 +71,7 @@ function App() {
                         <>
                             <h2>{weatherData.weather[0].description}</h2>
                             <h3>{weatherData.name}</h3>
-                            <h1>{kelvinToCelcius(weatherData.main.temp)}</h1>
+                            <h1>{kelinToMetric(weatherData.main.temp)}</h1>
                         </>
                     }
                      </span>
