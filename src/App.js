@@ -11,6 +11,7 @@ import './App.css';
 import axios from 'axios';
 import ForecastTab from "./pages/forecastTab/ForecastTab";
 import TodayTab from "./pages/todayTab/TodayTab";
+import {TempContext} from "./context/TempProvider";
 
 
 
@@ -22,7 +23,7 @@ function App() {
     const [error, setError] = useState(false)
     const [loading, toggleLoading] = useState(false);
 
-    const {kelvinToMetric} = useContext(tempContext);
+    const {kelvinToMetric} = useContext(TempContext);
 
     useEffect(() => {
 
